@@ -123,8 +123,23 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    RPM5V = 30000 / RPM5V_tmp;
-    RPM12V = 30000 / RPM12V_tmp;
+    if (RPM5V_tmp == 0)
+    {
+      RPM5V = 0;
+    }
+    else
+    {
+      RPM5V = 30000 / RPM5V_tmp;
+    }
+    if (RPM12V_tmp == 0)
+    {
+      RPM12V = 0;
+    }
+    else
+    {
+      RPM12V = 30000 / RPM12V_tmp;
+    }
+
     if ((TMR14_counter % 100) == 0)
     {
       if (showPWM_flag)

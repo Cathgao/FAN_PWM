@@ -239,6 +239,17 @@ void TIM14_IRQHandler(void)
   {
     TMR14_counter = 0;
   }
+
+  if(RPM5V_cnt > 3000)
+  {
+    RPM5V_tmp = 0;
+    RPM5V_cnt = 0;
+  }
+  if(RPM12V_cnt > 3000)
+  {
+    RPM12V_tmp = 0;
+    RPM12V_cnt = 0;
+  }
   /* USER CODE END TIM14_IRQn 1 */
 }
 
