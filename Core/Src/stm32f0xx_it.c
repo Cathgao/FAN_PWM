@@ -153,13 +153,13 @@ void EXTI0_1_IRQHandler(void)
   /* USER CODE BEGIN EXTI0_1_IRQn 0 */
   if (__HAL_GPIO_EXTI_GET_IT(GPIO_PIN_0) != RESET)
   {
-    RPM12V = 30000 / RPM12V_cnt;
+    RPM12V_tmp = RPM12V_cnt;
     RPM12V_cnt = 0;
   }
 
   if (__HAL_GPIO_EXTI_GET_IT(GPIO_PIN_1) != RESET)
   {
-    RPM5V = 30000 / RPM5V_cnt;
+    RPM5V_tmp = RPM5V_cnt;
     RPM5V_cnt = 0;
   }
   /* USER CODE END EXTI0_1_IRQn 0 */

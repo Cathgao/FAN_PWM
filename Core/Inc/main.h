@@ -69,7 +69,7 @@ extern uint16_t tmp;
 
 extern __IO uint16_t PWM_12V_value, PWM_5V_value;
 extern __IO uint16_t PWM_counter;
-extern __IO uint16_t RPM5V, RPM12V;
+extern __IO uint16_t RPM5V, RPM12V, RPM5V_tmp, RPM12V_tmp;
 extern __IO uint16_t TMR14_counter;
 extern __IO uint16_t RPM5V_cnt,RPM12V_cnt;
 /* USER CODE END Private defines */

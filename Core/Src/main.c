@@ -51,7 +51,7 @@ DMA_HandleTypeDef hdma_usart1_rx;
 DMA_HandleTypeDef hdma_usart1_tx;
 
 /* USER CODE BEGIN PV */
-__IO uint16_t RPM5V, RPM12V;
+__IO uint16_t RPM5V, RPM12V, RPM5V_tmp, RPM12V_tmp;
 __IO uint16_t PWM_12V_value = (PWM_MAX / 2);
 __IO uint16_t PWM_5V_value = (PWM_MAX / 2);
 __IO uint16_t PWM_counter = 0;
@@ -123,7 +123,8 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-
+    RPM5V = 30000 / RPM5V_tmp;
+    RPM12V = 30000 / RPM12V_tmp;
     if ((TMR14_counter % 100) == 0)
     {
       if (showPWM_flag)
