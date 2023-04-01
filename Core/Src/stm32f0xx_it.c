@@ -161,7 +161,6 @@ void EXTI0_1_IRQHandler(void)
   {
     RPM5V = 30000 / RPM5V_cnt;
     RPM5V_cnt = 0;
-    // RPM5V++;
   }
   /* USER CODE END EXTI0_1_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_0);
@@ -196,25 +195,7 @@ void TIM6_IRQHandler(void)
   /* USER CODE END TIM6_IRQn 0 */
   HAL_TIM_IRQHandler(&htim6);
   /* USER CODE BEGIN TIM6_IRQn 1 */
-
-  /* USER CODE END TIM6_IRQn 1 */
-}
-
-/**
-  * @brief This function handles TIM14 global interrupt.
-  */
-void TIM14_IRQHandler(void)
-{
-  /* USER CODE BEGIN TIM14_IRQn 0 */
-
-  /* USER CODE END TIM14_IRQn 0 */
-  HAL_TIM_IRQHandler(&htim14);
-  /* USER CODE BEGIN TIM14_IRQn 1 */
-  // PWM control
   PWM_counter++;
-  TMR14_counter++;
-  RPM5V_cnt++;
-  RPM12V_cnt++;
   if (PWM_counter <= PWM_12V_value)
   {
     PWM_12V_SET;
@@ -237,7 +218,23 @@ void TIM14_IRQHandler(void)
   {
     PWM_counter = 0;
   }
+  /* USER CODE END TIM6_IRQn 1 */
+}
 
+/**
+  * @brief This function handles TIM14 global interrupt.
+  */
+void TIM14_IRQHandler(void)
+{
+  /* USER CODE BEGIN TIM14_IRQn 0 */
+
+  /* USER CODE END TIM14_IRQn 0 */
+  HAL_TIM_IRQHandler(&htim14);
+  /* USER CODE BEGIN TIM14_IRQn 1 */
+  // PWM control
+  TMR14_counter++;
+  RPM5V_cnt++;
+  RPM12V_cnt++;
   if(TMR14_counter > 5000)
   {
     TMR14_counter = 0;
